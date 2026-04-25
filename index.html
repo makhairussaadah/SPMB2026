@@ -6,53 +6,74 @@
 <title>SPMB 2026 - MA Khairussa'adah Kubu</title>
 
 <style>
-body{
-font-family: Arial, sans-serif;
-background:#f4f6f9;
+*{
 margin:0;
 padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial, sans-serif;
+background:#f4f6fa;
+color:#222;
 }
 
 header{
-background:#003b8e;
+background:linear-gradient(135deg,#003b8e,#0056c7);
 color:white;
-padding:25px;
+padding:40px 20px;
 text-align:center;
+}
+
+header img{
+width:90px;
+margin-bottom:15px;
 }
 
 header h1{
-margin:0;
-font-size:32px;
+font-size:34px;
+margin-bottom:8px;
 }
 
 header p{
-margin-top:8px;
-font-size:16px;
+font-size:18px;
+opacity:0.95;
 }
 
 .container{
-max-width:700px;
-margin:40px auto;
-background:white;
-padding:30px;
-border-radius:12px;
-box-shadow:0 0 15px rgba(0,0,0,0.08);
+max-width:900px;
+margin:auto;
+padding:30px 20px;
 }
 
-h2{
-text-align:center;
-color:#003b8e;
+.card{
+background:white;
+padding:25px;
+border-radius:14px;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
 margin-bottom:25px;
 }
 
-input, select, textarea{
+h2{
+color:#003b8e;
+margin-bottom:18px;
+}
+
+p, li{
+line-height:1.7;
+}
+
+ul{
+padding-left:20px;
+}
+
+input, textarea, select{
 width:100%;
-padding:12px;
+padding:13px;
 margin-bottom:15px;
 border:1px solid #ccc;
 border-radius:8px;
 font-size:15px;
-box-sizing:border-box;
 }
 
 button{
@@ -63,17 +84,28 @@ color:white;
 border:none;
 border-radius:8px;
 font-size:16px;
-cursor:pointer;
 font-weight:bold;
+cursor:pointer;
 }
 
 button:hover{
-background:#002b66;
+background:#002f70;
+}
+
+.wa{
+display:inline-block;
+background:#25D366;
+color:white;
+padding:12px 18px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+margin-top:10px;
 }
 
 footer{
 text-align:center;
-padding:20px;
+padding:30px;
 font-size:14px;
 color:#666;
 }
@@ -81,9 +113,9 @@ color:#666;
 .loading{
 display:none;
 text-align:center;
-margin-top:15px;
 color:green;
 font-weight:bold;
+margin-top:15px;
 }
 </style>
 </head>
@@ -91,13 +123,36 @@ font-weight:bold;
 <body>
 
 <header>
-<h1>SPMB 2026</h1>
-<p>MA Khairussa'adah Kubu</p>
+
+<!-- GANTI logo.png dengan logo sekolah -->
+<img src="logo.png" alt="Logo Sekolah">
+
+<h1>MA Khairussa'adah Kubu</h1>
+<p>Seleksi Penerimaan Murid Baru (SPMB) Tahun 2026</p>
+
 </header>
 
 <div class="container">
 
-<h2>Form Pendaftaran Online</h2>
+<div class="card">
+<h2>📌 Jadwal Pendaftaran</h2>
+<p><b>Gelombang 1:</b> 22 Juni - 3 Juli 2026</p>
+<p><b>Gelombang 2:</b> 6 Juli - 15 Juli 2026</p>
+</div>
+
+<div class="card">
+<h2>📄 Persyaratan</h2>
+<ul>
+<li>Fotocopy Kartu Keluarga</li>
+<li>Fotocopy Akta Lahir</li>
+<li>Pas Foto 3x4</li>
+<li>Ijazah / SKL</li>
+<li>Mengisi Formulir Pendaftaran</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>📝 Form Pendaftaran Online</h2>
 
 <form id="formDaftar">
 
@@ -120,11 +175,33 @@ font-weight:bold;
 <div class="loading" id="loading">Sedang mengirim data...</div>
 
 </form>
+</div>
+
+<div class="card">
+<h2>📞 Kontak Panitia</h2>
+<p>WhatsApp Admin:</p>
+
+<a class="wa" href="https://wa.me/6281233246744" target="_blank">
+Chat WhatsApp
+</a>
+
+<p style="margin-top:15px;">
+Alamat: Dusun Setia Usaha RT004/RW004 Desa Kubu, Kecamatan Kubu, Kabupaten Kubu Raya
+</p>
+</div>
+
+<div class="card">
+<h2>📢 Brosur Resmi</h2>
+
+<!-- GANTI brosur.jpg dengan file brosur -->
+<img src="brosur.png" width="100%" style="border-radius:10px;">
+
+</div>
 
 </div>
 
 <footer>
-© 2026 MA Khairussa'adah Kubu
+© 2026 MA Khairussa'adah Kubu - Website Resmi SPMB
 </footer>
 
 <script>
@@ -151,7 +228,7 @@ program: document.getElementById("program").value
 
 document.getElementById("loading").style.display="none";
 
-alert("Pendaftaran berhasil!");
+alert("Pendaftaran berhasil! Silakan screenshot bukti pengisian dan datang ke sekolah.");
 
 document.getElementById("formDaftar").reset();
 
@@ -161,7 +238,7 @@ document.getElementById("formDaftar").reset();
 
 document.getElementById("loading").style.display="none";
 
-alert("Terjadi kesalahan, coba lagi.");
+alert("Terjadi kesalahan. Silakan coba lagi.");
 
 });
 
