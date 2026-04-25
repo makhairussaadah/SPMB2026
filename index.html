@@ -1,1 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPMB 2026 - MA Khairussa'adah Kubu</title>
 
+<style>
+body{
+font-family: Arial, sans-serif;
+background:#f4f6f9;
+margin:0;
+padding:0;
+}
+
+header{
+background:#003b8e;
+color:white;
+padding:25px;
+text-align:center;
+}
+
+header h1{
+margin:0;
+font-size:32px;
+}
+
+header p{
+margin-top:8px;
+font-size:16px;
+}
+
+.container{
+max-width:700px;
+margin:40px auto;
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 0 15px rgba(0,0,0,0.08);
+}
+
+h2{
+text-align:center;
+color:#003b8e;
+margin-bottom:25px;
+}
+
+input, select, textarea{
+width:100%;
+padding:12px;
+margin-bottom:15px;
+border:1px solid #ccc;
+border-radius:8px;
+font-size:15px;
+box-sizing:border-box;
+}
+
+button{
+width:100%;
+padding:14px;
+background:#003b8e;
+color:white;
+border:none;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+font-weight:bold;
+}
+
+button:hover{
+background:#002b66;
+}
+
+footer{
+text-align:center;
+padding:20px;
+font-size:14px;
+color:#666;
+}
+
+.loading{
+display:none;
+text-align:center;
+margin-top:15px;
+color:green;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>SPMB 2026</h1>
+<p>MA Khairussa'adah Kubu</p>
+</header>
+
+<div class="container">
+
+<h2>Form Pendaftaran Online</h2>
+
+<form id="formDaftar">
+
+<input type="text" id="nama" placeholder="Nama Lengkap" required>
+
+<input type="text" id="nisn" placeholder="NISN" required>
+
+<input type="text" id="ttl" placeholder="Tempat, Tanggal Lahir" required>
+
+<textarea id="alamat" placeholder="Alamat Lengkap" required></textarea>
+
+<select id="program" required>
+<option value="">Pilih Program</option>
+<option value="Reguler">Reguler</option>
+<option value="Tahfidz">Tahfidz</option>
+</select>
+
+<button type="submit">Kirim Pendaftaran</button>
+
+<div class="loading" id="loading">Sedang mengirim data...</div>
+
+</form>
+
+</div>
+
+<footer>
+© 2026 MA Khairussa'adah Kubu
+</footer>
+
+<script>
+document.getElementById("formDaftar").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+document.getElementById("loading").style.display="block";
+
+fetch("https://script.google.com/macros/s/AKfycbxt9CdOqB3hJvNKdOfc7sJkOY4aLGsV5uA8E50y3fdR9I0FtPhSMuzAEsJkdPy5c2YG/exec",{
+method:"POST",
+body: JSON.stringify({
+nama: document.getElementById("nama").value,
+nisn: document.getElementById("nisn").value,
+ttl: document.getElementById("ttl").value,
+alamat: document.getElementById("alamat").value,
+program: document.getElementById("program").value
+})
+})
+
+.then(response => response.text())
+
+.then(data => {
+
+document.getElementById("loading").style.display="none";
+
+alert("Pendaftaran berhasil!");
+
+document.getElementById("formDaftar").reset();
+
+})
+
+.catch(error => {
+
+document.getElementById("loading").style.display="none";
+
+alert("Terjadi kesalahan, coba lagi.");
+
+});
+
+});
+</script>
+
+</body>
+</html>
