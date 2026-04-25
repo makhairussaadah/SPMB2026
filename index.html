@@ -3,71 +3,106 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SPMB 2026 - MA Khairussa'adah Kubu</title>
+<title>SPMB 2026 | MA Khairussa'adah Kubu</title>
 
 <style>
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
 body{
 font-family:Arial, sans-serif;
-background:#f4f6fa;
+background:#f5f7f5;
 color:#222;
 }
 
 header{
-background:linear-gradient(135deg,#003b8e,#0056c7);
-color:white;
-padding:40px 20px;
+height:100vh;
+background:
+linear-gradient(rgba(0,80,40,0.65),rgba(0,80,40,0.65)),
+url('gedung.png');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
 text-align:center;
+padding:20px;
+color:white;
 }
 
-header img{
-width:90px;
+.hero{
+max-width:800px;
+}
+
+.hero h1{
+font-size:52px;
 margin-bottom:15px;
 }
 
-header h1{
-font-size:34px;
-margin-bottom:8px;
+.hero p{
+font-size:20px;
+line-height:1.6;
+margin-bottom:25px;
 }
 
-header p{
-font-size:18px;
-opacity:0.95;
+.btn{
+display:inline-block;
+padding:14px 28px;
+background:#ffffff;
+color:#006633;
+text-decoration:none;
+font-weight:bold;
+border-radius:8px;
+margin:5px;
+}
+
+.btn2{
+background:#00b35a;
+color:white;
+}
+
+section{
+padding:70px 20px;
 }
 
 .container{
-max-width:900px;
+max-width:1000px;
 margin:auto;
-padding:30px 20px;
 }
 
 .card{
 background:white;
-padding:25px;
-border-radius:14px;
-box-shadow:0 5px 15px rgba(0,0,0,0.08);
+padding:30px;
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
 margin-bottom:25px;
 }
 
 h2{
-color:#003b8e;
-margin-bottom:18px;
+color:#006633;
+margin-bottom:20px;
+font-size:32px;
 }
 
-p, li{
-line-height:1.7;
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
 }
 
-ul{
-padding-left:20px;
+.mini{
+background:#f0faf4;
+padding:20px;
+border-radius:12px;
+text-align:center;
+font-weight:bold;
 }
 
-input, textarea, select{
+input,textarea,select{
 width:100%;
 padding:13px;
 margin-bottom:15px;
@@ -78,8 +113,8 @@ font-size:15px;
 
 button{
 width:100%;
-padding:14px;
-background:#003b8e;
+padding:15px;
+background:#006633;
 color:white;
 border:none;
 border-radius:8px;
@@ -89,33 +124,64 @@ cursor:pointer;
 }
 
 button:hover{
-background:#002f70;
-}
-
-.wa{
-display:inline-block;
-background:#25D366;
-color:white;
-padding:12px 18px;
-border-radius:8px;
-text-decoration:none;
-font-weight:bold;
-margin-top:10px;
-}
-
-footer{
-text-align:center;
-padding:30px;
-font-size:14px;
-color:#666;
+background:#004d26;
 }
 
 .loading{
 display:none;
 text-align:center;
+margin-top:15px;
+font-weight:bold;
 color:green;
+}
+
+.wa{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px 18px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+z-index:999;
+}
+
+footer{
+background:#003d1f;
+color:white;
+text-align:center;
+padding:30px;
+}
+
+.countdown{
+font-size:22px;
 font-weight:bold;
 margin-top:15px;
+color:#ffeb3b;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:36px;
+}
+
+.hero p{
+font-size:17px;
+}
+
+h2{
+font-size:26px;
+}
+
+header{
+height:auto;
+padding:100px 20px;
+}
+
 }
 </style>
 </head>
@@ -123,36 +189,54 @@ margin-top:15px;
 <body>
 
 <header>
+<div class="hero">
+<h1>SPMB 2026</h1>
+<p>MA Khairussa'adah Kubu<br>Pendaftaran Resmi Tahun Ajaran Baru Telah Dibuka</p>
 
-<!-- GANTI logo.png dengan logo sekolah -->
-<img src="logo.png" alt="Logo Sekolah">
+<a href="#formulir" class="btn">Daftar Sekarang</a>
+<a href="#info" class="btn btn2">Lihat Info</a>
 
-<h1>MA Khairussa'adah Kubu</h1>
-<p>Seleksi Penerimaan Murid Baru (SPMB) Tahun 2026</p>
-
+<div class="countdown" id="countdown"></div>
+</div>
 </header>
 
+<section id="info">
 <div class="container">
 
 <div class="card">
-<h2>📌 Jadwal Pendaftaran</h2>
+<h2>Kenapa Memilih Kami?</h2>
+
+<div class="grid">
+<div class="mini">Akhlak & Karakter Islami</div>
+<div class="mini">Lingkungan Nyaman</div>
+<div class="mini">Guru Berpengalaman</div>
+<div class="mini">Ekstrakurikuler Aktif</div>
+</div>
+</div>
+
+<div class="card">
+<h2>Jadwal Pendaftaran</h2>
 <p><b>Gelombang 1:</b> 22 Juni - 3 Juli 2026</p>
 <p><b>Gelombang 2:</b> 6 Juli - 15 Juli 2026</p>
 </div>
 
 <div class="card">
-<h2>📄 Persyaratan</h2>
-<ul>
-<li>Fotocopy Kartu Keluarga</li>
-<li>Fotocopy Akta Lahir</li>
-<li>Pas Foto 3x4</li>
-<li>Ijazah / SKL</li>
-<li>Mengisi Formulir Pendaftaran</li>
-</ul>
+<h2>Persyaratan</h2>
+<p>• FC KK</p>
+<p>• FC Akta Lahir</p>
+<p>• FC Ijazah / SKL</p>
+<p>• FC Rapor</p>
+<p>• Pas Foto</p>
 </div>
 
+</div>
+</section>
+
+<section id="formulir">
+<div class="container">
+
 <div class="card">
-<h2>📝 Form Pendaftaran Online</h2>
+<h2>Form Pendaftaran Online</h2>
 
 <form id="formDaftar">
 
@@ -175,34 +259,18 @@ margin-top:15px;
 <div class="loading" id="loading">Sedang mengirim data...</div>
 
 </form>
-</div>
-
-<div class="card">
-<h2>📞 Kontak Panitia</h2>
-<p>WhatsApp Admin:</p>
-
-<a class="wa" href="https://wa.me/6281233246744" target="_blank">
-Chat WhatsApp
-</a>
-
-<p style="margin-top:15px;">
-Alamat: Dusun Setia Usaha RT004/RW004 Desa Kubu, Kecamatan Kubu, Kabupaten Kubu Raya
-</p>
-</div>
-
-<div class="card">
-<h2>📢 Brosur Resmi</h2>
-
-<!-- GANTI brosur.jpg dengan file brosur -->
-<img src="brosur.png" width="100%" style="border-radius:10px;">
 
 </div>
 
 </div>
+</section>
 
 <footer>
-© 2026 MA Khairussa'adah Kubu - Website Resmi SPMB
+MA Khairussa'adah Kubu<br>
+Dusun Setia Usaha RT004/RW004 Desa Kubu, Kec. Kubu, Kab. Kubu Raya
 </footer>
+
+<a href="https://wa.me/6281233246744" class="wa" target="_blank">WhatsApp</a>
 
 <script>
 document.getElementById("formDaftar").addEventListener("submit", function(e){
@@ -213,36 +281,47 @@ document.getElementById("loading").style.display="block";
 
 fetch("https://script.google.com/macros/s/AKfycbxt9CdOqB3hJvNKdOfc7sJkOY4aLGsV5uA8E50y3fdR9I0FtPhSMuzAEsJkdPy5c2YG/exec",{
 method:"POST",
-body: JSON.stringify({
-nama: document.getElementById("nama").value,
-nisn: document.getElementById("nisn").value,
-ttl: document.getElementById("ttl").value,
-alamat: document.getElementById("alamat").value,
-program: document.getElementById("program").value
+body:JSON.stringify({
+nama:document.getElementById("nama").value,
+nisn:document.getElementById("nisn").value,
+ttl:document.getElementById("ttl").value,
+alamat:document.getElementById("alamat").value,
+program:document.getElementById("program").value
 })
 })
-
-.then(response => response.text())
-
-.then(data => {
-
+.then(response=>response.text())
+.then(data=>{
 document.getElementById("loading").style.display="none";
-
-alert("Pendaftaran berhasil! Silakan screenshot bukti pengisian dan datang ke sekolah.");
-
+alert("Pendaftaran berhasil! Silakan screenshot bukti pendaftaran.");
 document.getElementById("formDaftar").reset();
-
 })
-
-.catch(error => {
-
+.catch(error=>{
 document.getElementById("loading").style.display="none";
-
-alert("Terjadi kesalahan. Silakan coba lagi.");
-
+alert("Terjadi kesalahan.");
 });
 
 });
+
+var target = new Date("June 22, 2026 08:00:00").getTime();
+
+setInterval(function(){
+
+var now = new Date().getTime();
+var distance = target - now;
+
+var d = Math.floor(distance/(1000*60*60*24));
+var h = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+var m = Math.floor((distance%(1000*60*60))/(1000*60));
+
+if(distance > 0){
+document.getElementById("countdown").innerHTML =
+"Gelombang 1 Dibuka Dalam: " + d + " Hari " + h + " Jam " + m + " Menit";
+}else{
+document.getElementById("countdown").innerHTML =
+"Pendaftaran Sedang Dibuka";
+}
+
+},1000);
 </script>
 
 </body>
